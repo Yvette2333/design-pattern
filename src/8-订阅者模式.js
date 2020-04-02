@@ -225,22 +225,20 @@ var b = (function () {
 // =================== 一个带有缓存的订阅-发布对象================
 console.log('// =================== 一个带有缓存的订阅-发布对象================')
 var NamespaceEvent = (function () {
-  var global = this,
-    Event, // 观察者
-    _default = 'default';
-
+  var Event, // 观察者
+    _default = 'default'; // 默认的命名空间
 
   Event = function () {
     var _listen,
       _trigger,
       _remove,
-      _slice = Array.prototype.slice,
       _shift = Array.prototype.shift,
       _unshift = Array.prototype.unshift,
+      //全局命名空间的存储变量 新增命名空间，此处 namespaceCache = {default:{}, newNameSpace:{} }
       namespaceCache = {},
       _create,
-      find,
       each = function (ary, fn) {
+        // 一个手写的each方法
         var ret;
         for (var i = 0, l = ary.length; i < l; i++) {
           var n = ary[i];
@@ -272,8 +270,7 @@ var NamespaceEvent = (function () {
         key = _shift.call(arguments),
         args = arguments,
         _self = this,
-        ret,
-        stack = cache[key]; 
+        stack = cache[key]; //就是普通的获取 当前的key分类对应的 回调队列
       if (!stack || !stack.length) {
         return;
       }
@@ -370,21 +367,21 @@ NamespaceEvent.listen('click', function (a) {
 /************** 使用命名空间 ********************/
 let name1 = NamespaceEvent.create('namespace1')
 
-name1.trigger('click','123','last')
-name1.trigger('click','123','last')
+name1.trigger('click', '123', 'last')
+name1.trigger('click', '123', 'last')
 
 console.log(name1)
 console.log(NamespaceEvent) // create 增加命名空间
 
-// name1.listen('click', function (a) {
-//   console.log(a); // 输出： 1
-// });
-// name1.listen('click', function (a) {
-//   console.log('我是 namespace1 命名空间中 cache队列的最后一个回调函数 2',a); // 输出： 123
-// });
+name1.listen('click', function (a) {
+  console.log(a); // 输出： 1
+});
+name1.listen('click', function (a) {
+  console.log('我是 namespace1 命名空间中 cache队列的最后一个回调函数 2',a); // 输出： 123
+});
 
-// Event.create('namespace1').trigger('click', 1);
-// Event.create('namespace2').listen('click', function (a) {
-//   console.log(a); // 输出： 2
-// });
-// Event.create('namespace2').trigger('click', 2);
+Event.create('namespace1').trigger('click', 1);
+Event.create('namespace2').listen('click', function (a) {
+  console.log(a); // 输出： 2
+});
+Event.create('namespace2').trigger('click', 2);
