@@ -1,4 +1,4 @@
-// 封装 与 多态
+// 多态
 var googleMap = {
   show: () => {
     console.log('this is a google Map')
