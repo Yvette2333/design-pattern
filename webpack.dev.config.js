@@ -2,7 +2,7 @@ const path = require("path");
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     path: __dirname,
     filename: './release/bundle.js'
@@ -13,6 +13,10 @@ module.exports = {
         test: /\.js?$/,
         exclude: /(node_module)/,
         loader: 'babel-loader',
+      },{
+        test: /\.ts?$/,
+        exclude: /(node_module)/,
+        loader: 'ts-loader',
       },
     ]
   },
