@@ -147,8 +147,6 @@ let order = function (orderType, pay, stock) {
 
 })();
 
-
-
 // ============= 异步职责链  ===========
 (function () {
   console.log("============= 异步职责链 ===========")
@@ -229,7 +227,6 @@ let order = function (orderType, pay, stock) {
     }
   }
 
-
   Function.prototype.after = function (fn) {
     let _this = this;
     return function () {
@@ -244,6 +241,5 @@ let order = function (orderType, pay, stock) {
   let order = order500.after(order200).after(orderNormal);
 
   order(1,true,500)
-
 
 })()

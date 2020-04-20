@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     // "incremental": true,                       // 增置编译
     // "tsBuildlnfoFile": "./buildFile",          // 增置编译文件的存储位置
 　　// "diagnostics": true,　　　　　　　　　　　　　　// 打印诊断倍息
-    // "target": "es5",                           // 目标语言的版本
+    "target": "es5",                           // 目标语言的版本
     // "module": "commonjs",                      // 生成代码的模块标准
     // "outFile": "./app-js",                     // 将多个相互依赖的文件生成一个文件，可以用在AMD模块中
     // "lib": [],                                 // TS 需要引用的库，即声明文件，es5 默认"dom", "es5", "scripthost"

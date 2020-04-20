@@ -1,2 +1,5 @@
 node_modules
-src/index.ts
+src/dic
+
+*.ts
+*.back.*

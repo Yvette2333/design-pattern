@@ -19,10 +19,36 @@
 
     <p>发布订阅模式 - demo - end </p>
 
+  
 
     <button id="count">点我</button>
     <button id="cancelDom">点我取消</button>
     <div id="show"></div>
+
+    <hr/>
+    选择颜色: <select id="colorSelect">
+
+    <option value="">请选择</option>
+    <option value="red">红色</option>
+    <option value="blue">蓝色</option>
+    </select>
+    选择内存: <select id="memorySelect">
+      <option value="">请选择</option>
+      <option value="32G">32G</option>
+      <option value="16G">16G</option>
+    </select>
+    输入购买数量: <input type="text" id="numberInput"/>
+    您选择了颜色: <div id="colorInfo"></div><br/>
+    您输入了数量: <div id="numberInfo"></div><br/>
+    您选择的内存： <div id="memoryInfo"></div><br/>
+    <button id="nextBtn" disabled="true">请选择手机颜色和购买数量</button>
+
+    <hr/>
+    <p> 电灯程序 </p>
+
+
+
+
     <script src="./src/index.js"></script>
 	</body>
 </html>
