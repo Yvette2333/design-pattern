@@ -136,8 +136,7 @@ let order = function (orderType, pay, stock) {
   var chainOrderNormal = new Chain(orderNormal);
 
   // 设定职责链的顺序
-  chainOrder500.setNextSuccessor(chainOrder200)
-  chainOrder500.setNextSuccessor(chainOrderNormal)
+  chainOrder500.setNextSuccessor(chainOrder200).setNextSuccessor(chainOrderNormal)
 
   // 执行  此处的起点永远是chainOrder500 🌈
   chainOrder500.passRequest(1, true, 500); // 输出： 500 元定金预购，得到 100 优惠券
